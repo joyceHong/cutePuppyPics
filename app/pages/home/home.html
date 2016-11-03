@@ -1,0 +1,17 @@
+﻿<ion-navbar *navbar>
+  <ion-title>藍芽裝置</ion-title>
+</ion-navbar>
+
+<ion-content padding class="home">
+    <ion-nav #mycontent [root]="rootPage"></ion-nav>
+    <ion-list inset>
+        <ion-item-sliding *ngFor="let device of devices" #slidingItem>
+            <button ion-item (click)="connectToDevice(device)">
+                <h2>{{device.name}}</h2>
+                <p>{{device.id}}</p>
+                <p>{{device.rssi}}</p>
+            </button>
+        </ion-item-sliding>
+        </ion-list>
+    <button full (click)="startScanning()">開始掃瞄</button>
+</ion-content>
